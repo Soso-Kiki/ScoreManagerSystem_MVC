@@ -18,16 +18,16 @@ namespace Feature.ScoreManagement.Controller
         private void Awake()
         {
             Debug.Assert(scoreText != null);
-            // Model과 Repository 객체를 생성합니다.
+            // Model과 Repository 객체를 생성
             _repository = new ScoreRepository();
 
             _model = ScoreModel.Initialize();
-            // 저장소에서 마지막 점수를 불러와 모델에 설정합니다.
+            // 저장소에서 마지막 점수를 불러와 모델에 설정
             _model.Score = _repository.LoadScore();
             
             UpdateScoreText(_model.Score);
-            // View에게 Model을 알려주어 서로 연결되게 합니다.
-            // scoreCanvas.SetModel(_model);
+           
+          
         }
 
 
@@ -38,10 +38,10 @@ namespace Feature.ScoreManagement.Controller
             {
                 case OnClickScoreAddEvent2 :
                     Debug.Log("Add Score");
-                    // 1. 모델의 점수를 10점 올립니다.
+                    // 1. 모델의 점수를 10점 올림
                     _model.Score += 10;
                 
-                    // 2. 새로운 점수를 저장소에 저장합니다.
+                    // 2. 새로운 점수를 저장소에 저장
                     _repository.SaveScore(_model.Score);
                     UpdateScoreText(_model.Score);
                     return EventChain.Break;
@@ -51,7 +51,7 @@ namespace Feature.ScoreManagement.Controller
         
         private void UpdateScoreText(int newScore)
         {
-            // 나머지 로직은 동일합니다.
+           
             scoreText.text = $"{newScore}";
         }
 
