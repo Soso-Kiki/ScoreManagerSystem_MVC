@@ -9,7 +9,7 @@ namespace Feature.ScoreManagement.Data.Reposittory
         // 점수를 불러오는 함수
         public int LoadScore()
         {
-            // PlayerPrefs에서 SCORE_KEY로 저장된 값을 불러옵니다. 없으면 기본값 0을 반환합니다.
+            // PlayerPrefs에서 SCORE_KEY로 저장된 값 불러옴
             return PlayerPrefs.GetInt(ScoreKey, 0);
         }
 
